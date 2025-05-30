@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
-
+  
   useEffect(() => {
     generateStars();
     generateMeteors();
