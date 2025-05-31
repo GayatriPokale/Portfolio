@@ -16,7 +16,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-            With over 5 years of experience in software development, I specialize in building scalable, end-to-end web applications using modern technologies across both front-end and back-end.
+            With over 3 years of experience in software development, I specialize in building scalable, end-to-end web applications using modern technologies across both front-end and back-end.
             </p>
 
             <p className="text-muted-foreground">
