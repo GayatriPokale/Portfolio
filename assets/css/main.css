@@ -1077,6 +1077,81 @@ section,
   margin-right: 8px;
   color: var(--accent-color);
 }
+/* ===========================
+   Responsive Tweaks (custom)
+   =========================== */
+
+/* Tablets & below */
+@media (max-width: 991.98px) {
+  /* Make skills cards full width on small screens */
+  #skills .col-md-6,
+  #skills .col-lg-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .project-image img {
+    height: 200px; /* avoid very tall images on narrow screens */
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 575.98px) {
+  .hero h2 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .header {
+    width: 260px; /* slightly narrower side menu on small devices */
+  }
+
+  .skill-box {
+    padding: 18px 14px;
+  }
+
+  .project-card {
+    margin-bottom: 15px;
+  }
+}
+/* ===========================
+   Mobile Tweaks (≤ 768px)
+   =========================== */
+@media (max-width: 768px) {
+
+  /* 1) Remove hero background image on mobile */
+  .hero img {
+    display: none;              /* hide background image */
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 120px 20px 80px;   /* more breathing room around text */
+    background: #040b14;        /* solid dark bg (same as your dark theme) */
+  }
+
+  /* 2) Fix skills cards: one per row, tidy spacing */
+  #skills .row {
+    display: block;             /* undo flex row forcing columns */
+  }
+
+  #skills .col-md-6,
+  #skills .col-lg-4 {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 15px;        /* space between cards */
+  }
+
+  .skill-box {
+    height: auto;               /* let card height adjust to content */
+    padding: 18px 14px;         /* slightly tighter padding on small screens */
+  }
+}
 
 /*--------------------------------------------------------------
 # Starter Section Section
