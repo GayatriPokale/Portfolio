@@ -80,7 +80,7 @@
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Education</a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i>Experience</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
         
         
@@ -288,28 +288,15 @@
 
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
-    <h2>Education & Experience</h2>
+    <h2 >Education & Experience</h2>
+    <p>An overview of my education and practical work experience in backend, cloud, and full-stack development.</p>
+
   </div>
 
   <div class="container">
     <div class="row">
 
-      <!-- Education -->
-      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-        <h3 class="resume-title">Education</h3>
-
-        <div class="resume-item">
-          <h4>Master of Science — Computer Information Systems</h4>
-          <h5>2024 — 2026 (Expected)</h5>
-          <p><em>Northeastern University — Boston, MA</em></p>
-        </div>
-
-        <div class="resume-item">
-          <h4>Bachelor of Engineering — Computer Science</h4>
-          <h5>2017 — 2021</h5>
-          <p><em>University of Pune, India</em></p>
-        </div>
-      </div>
+     
 
       <!-- Experience -->
       <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
@@ -336,6 +323,23 @@
         </div>
 
       </div><!-- End col-lg-6 -->
+
+       <!-- Education -->
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="resume-title">Education</h3>
+
+        <div class="resume-item">
+          <h4>Master of Science — Computer Information Systems</h4>
+          <h5>2024 — 2026 (Expected)</h5>
+          <p><em>Northeastern University — Boston, MA</em></p>
+        </div>
+
+        <div class="resume-item">
+          <h4>Bachelor of Engineering — Computer Science</h4>
+          <h5>2017 — 2021</h5>
+          <p><em>University of Pune, India</em></p>
+        </div>
+      </div>
 
     </div><!-- End row -->
   </div><!-- End container -->
@@ -477,40 +481,90 @@
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+  <form action="https://formspree.io/f/xreedqpe" method="POST" 
+      class="php-email-form" data-aos="fade-up" data-aos-delay="200">
 
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
+    <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
+      <div class="col-md-6">
+        <label for="name-field" class="pb-2">Your Name</label>
+        <input type="text" name="name" id="name-field" class="form-control" required>
+      </div>
 
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
+      <div class="col-md-6">
+        <label for="email-field" class="pb-2">Your Email</label>
+        <input type="email" class="form-control" name="email" id="email-field" required>
+      </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
+      <div class="col-md-12">
+        <label for="subject-field" class="pb-2">Subject</label>
+        <input type="text" class="form-control" name="subject" id="subject-field" required>
+      </div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+      <div class="col-md-12">
+        <label for="message-field" class="pb-2">Message</label>
+        <textarea class="form-control" name="message" rows="10" id="message-field" required></textarea>
+      </div>
 
-                  <button type="submit">Send Message</button>
-                </div>
+      <!-- Optional: this helps replies go to the sender's email -->
+      <input type="hidden" name="_replyto" value="">
 
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
+      <div class="col-md-12 text-center">
+        <div class="loading" style="display:none;">Loading...</div>
+        <div class="error-message" style="display:none;"></div>
+        <div class="sent-message" style="display:none;">Your message has been sent. Thank you!</div>
+
+        <button type="submit">Send Message</button>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<script>
+  (function () {
+    const form = document.querySelector(".contact-form");
+    const loading = form.querySelector(".loading");
+    const errorMessage = form.querySelector(".error-message");
+    const sentMessage = form.querySelector(".sent-message");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // reset states
+      loading.style.display = "block";
+      errorMessage.style.display = "none";
+      sentMessage.style.display = "none";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        loading.style.display = "none";
+
+        if (response.ok) {
+          sentMessage.style.display = "block";
+          form.reset();
+        } else {
+          errorMessage.textContent = "Oops! Something went wrong. Please try again.";
+          errorMessage.style.display = "block";
+        }
+      } catch (err) {
+        loading.style.display = "none";
+        errorMessage.textContent = "Network error. Please check your connection and try again.";
+        errorMessage.style.display = "block";
+      }
+    });
+  })();
+</script>
+
 
         </div>
 
